@@ -5622,6 +5622,11 @@ function _asyncToGenerator(fn) { return function () { var self = this, args = ar
       var _this = this;
 
       this.$watch('query', function (query) {
+        if (query === '') {
+          _this.results = null;
+          return;
+        }
+
         _this.search(query);
       });
     },

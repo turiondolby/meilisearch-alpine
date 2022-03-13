@@ -6,6 +6,11 @@ export default function () {
 
         watchQuery() {
             this.$watch('query', (query) => {
+                if (query === '') {
+                    this.results = null;
+                    return;
+                }
+
                 this.search(query);
             });
         },
