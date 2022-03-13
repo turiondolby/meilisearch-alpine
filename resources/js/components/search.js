@@ -1,4 +1,4 @@
-export default function () {
+export default function (meilisearchConfig, index) {
     return {
         query: '',
         index: null,
@@ -20,11 +20,9 @@ export default function () {
         },
 
         init() {
-            const client = new window.MeiliSearch({
-                host: 'http://127.0.0.1:7700'
-            });
+            const client = new window.MeiliSearch(meilisearchConfig);
 
-            this.index = client.index('articles');
+            this.index = client.index(index);
             this.watchQuery()
         }
     };
