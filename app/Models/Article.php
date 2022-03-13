@@ -11,4 +11,12 @@ class Article extends Model
     use HasFactory;
     use Searchable;
 
+    public function toSearchableArray()
+    {
+        return [
+            'id' => $this->id,
+            'title' => $this->title,
+            'teaser' => $this->teaser,
+        ];
+    }
 }
